@@ -4,10 +4,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Service                                                //--------- rozszerzenei funkcji komponentu
 public class BookService {
-    private final List<Book> books = new ArrayList<>();
+    private List<Book> books = new ArrayList<>();
 
     public BookService() {
         books.add(new Book(1,"Harry Portier","Roling int the deep", 1969));
@@ -20,7 +22,15 @@ public class BookService {
         return books;
     }
 
+    public Book getBookById(int id){
+        return books.stream().filter(book -> book.getId()==id).findFirst().orElseThrow(()->new NoSuchElementException("No book with id:"+id));
+    }
+
     public void addBook(Book book){
         books.add(book);
+    }
+
+    public void deleteBook(int id){
+        books=books.stream().filter(book -> book.getId()!=id).collect(Collectors.toList());
     }
 }
