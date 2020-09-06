@@ -4,6 +4,7 @@ import com.springboot.starter.Book;
 import com.springboot.starter.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
@@ -23,5 +24,10 @@ public class BookController {
 //                new Book("Ostatni smok","Knaak", 2012)
 //        );
         return  bookService.getAllBooks();                                  //----------------------zmiana sposobu wypisanie ksiazek
+    }
+
+    @PostMapping("/books")
+    public void addBoook(Book book){                                        //---------------------- @RequestBody - wymusza JSON
+        bookService.addBook(book);
     }
 }

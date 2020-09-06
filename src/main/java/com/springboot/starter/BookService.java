@@ -7,13 +7,13 @@ import java.util.List;
 
 @Service                                                //--------- rozszerzenei funkcji komponentu
 public class BookService {
-    private List<Book> books = new ArrayList<>();
+    private final List<Book> books = new ArrayList<>();
 
     public BookService() {
-        books.add(new Book("Harry Portier","Roling int the deep", 1969));
-        books.add(new Book("Gra o tron","Gruby Gosc", 1970));
-        books.add(new Book("Igrzyska","McConnel", 2000));
-        books.add(new Book("Ostatni smok","Knaak", 2012));
+        books.add(new Book(1,"Harry Portier","Roling int the deep", 1969));
+        books.add(new Book(2,"Gra o tron","Gruby Gosc", 1970));
+        books.add(new Book(3,"Igrzyska","McConnel", 2000));
+        books.add(new Book(4,"Ostatni smok","Knaak", 2012));
     }
 
     public List<Book> getAllBooks(){
