@@ -17,21 +17,21 @@ public class BookController {
 
     @GetMapping("/books/{id}")
     public ResponseEntity<Book> getBook(@PathVariable int id){              //----------------------@PathVariable oznacza typ parametru przekazanego w "{}"
-        try{
+        //try{
             return ResponseEntity.ok(bookService.getBookById(id));          //----------------------ResponseEntity do obslugi bledow http
-        }catch (NoSuchElementException exception){
-            return ResponseEntity.notFound().build();                       //---------------------- OBSLUGA BLEDU
-        }
+        //}catch (NoSuchElementException exception){
+        //     return ResponseEntity.notFound().build();                       //---------------------- OBSLUGA BLEDU
+        //}
     }
 
     @DeleteMapping("/books/{id}")
     public ResponseEntity<Book> deleteBook(@PathVariable int id){
-        try{
+        //try{
             bookService.deleteBook(id);
             return ResponseEntity.ok().build();
-        } catch (NoSuchElementException exception){
-            return ResponseEntity.notFound().build();
-        }
+        //} catch (NoSuchElementException exception){
+        //    return ResponseEntity.notFound().build();
+        //}
     }
 
     @GetMapping("/books")
